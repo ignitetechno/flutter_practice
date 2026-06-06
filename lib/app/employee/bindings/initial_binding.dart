@@ -5,13 +5,25 @@ import 'package:flutter_practice/app/employee/controller/splash_controller.dart'
 import 'package:get/get.dart';
 
 
-
+// will be used to initialize all the controllers at the start of the app
 class InitialBinding extends Bindings {
   @override
   void dependencies() {
-    Get.put(SplashController());
-    Get.put(BottomNavController());
-    Get.put(EmployeeController());
-    Get.put(HrmsController());
+
+    Get.lazyPut<SplashController>(
+      () => SplashController(),
+    );
+
+    Get.lazyPut<BottomNavController>(
+      () => BottomNavController(),
+    );
+
+    Get.lazyPut<EmployeeController>(
+      () => EmployeeController(),
+    );
+
+    Get.lazyPut<HrmsController>(
+      () => HrmsController(),
+    );
   }
 }
