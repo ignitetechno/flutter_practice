@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice/app/employee/views/emp_page.dart';
-import 'package:flutter_practice/app/employee/views/home.dart';
-import 'package:flutter_practice/app/employee/views/profile.dart';
 import 'package:get/get.dart';
 
 import '../controller/bottom_nav_controller.dart';
-
+import 'emp_page.dart';
+import 'home.dart';
+import 'profile.dart';
 
 class DashboardPage extends StatelessWidget {
   DashboardPage({super.key});
@@ -14,9 +13,11 @@ class DashboardPage extends StatelessWidget {
       Get.put(BottomNavController());
 
   final List<Widget> pages = [
-    const HomePage(),
+    HomePage(),
     EmployeePage(),
     const ProfilePage(),
+    const Center(child: Text("Settings Page")),
+    const Center(child: Text("More Page")),
   ];
 
   @override
@@ -24,21 +25,23 @@ class DashboardPage extends StatelessWidget {
     return Obx(
       () => Scaffold(
         appBar: AppBar(
-          title: const Text("GetX Bottom Navigation"),
+          title: const Text("GetX Dashboard"),
         ),
 
+        // 🔥 Body now has 6 cards in Home tab
         body: pages[controller.currentIndex.value],
 
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex:
-              controller.currentIndex.value,
+          type: BottomNavigationBarType.fixed,
+
+          currentIndex: controller.currentIndex.value,
 
           onTap: controller.changeIndex,
 
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
+              icon: Icon(Icons.dashboard),
+              label: "Dashboard",
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.people),
@@ -47,6 +50,14 @@ class DashboardPage extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: "Profile",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: "Settings",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.more_horiz),
+              label: "More",
             ),
           ],
         ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/app/employee/bindings/initial_binding.dart';
 import 'package:flutter_practice/app/employee/routes/app_pages.dart';
 import 'package:flutter_practice/app/employee/routes/app_routes.dart';
 import 'package:get/get.dart';
-
-
 
 void main() {
   runApp(const MyApp());
@@ -14,22 +13,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
+return GetMaterialApp(
+  debugShowCheckedModeBanner: false,
 
-      title: 'GetX App',
+  initialBinding: InitialBinding(),
 
-      // প্রথম কোন page open হবে
-      initialRoute: AppRoutes.dashboard,
+  initialRoute: AppRoutes.splash,
 
-      // সব routes এখানে define করা আছে
-      getPages: AppPages.pages,
-
-      // optional theme
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        useMaterial3: true,
-      ),
-    );
+  getPages: AppPages.pages,
+);
   }
 }

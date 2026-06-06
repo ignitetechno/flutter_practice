@@ -1,13 +1,20 @@
-import 'package:flutter_practice/app/employee/routes/app_routes.dart';
-import 'package:flutter_practice/app/employee/views/dashboard.dart';
-import 'package:flutter_practice/app/employee/views/emp_page.dart';
-import 'package:flutter_practice/app/employee/views/employee_details_page.dart';
 import 'package:get/get.dart';
 
-
+import '../views/splash_screen.dart';
+import '../views/dashboard.dart';
+import '../views/emp_page.dart';
+import '../views/employee_details_page.dart';
+import 'app_routes.dart';
 
 class AppPages {
   static final pages = [
+
+    // 🔥 Splash first (entry point)
+    GetPage(
+      name: AppRoutes.splash,
+      page: () => SplashScreen(),
+    ),
+
     GetPage(
       name: AppRoutes.dashboard,
       page: () => DashboardPage(),

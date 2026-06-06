@@ -7,8 +7,8 @@ class EmployeePage extends StatelessWidget {
 
   EmployeePage({super.key});
 
-  final EmployeeController controller =
-      Get.put(EmployeeController());
+  // ✅ SAFE WAY (reuse existing controller)
+  final EmployeeController controller = Get.find<EmployeeController>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +21,7 @@ class EmployeePage extends StatelessWidget {
       body: Column(
         children: [
 
+          // 🔍 Search
           Padding(
             padding: const EdgeInsets.all(10),
             child: TextField(
@@ -33,6 +34,7 @@ class EmployeePage extends StatelessWidget {
             ),
           ),
 
+          // 📋 List
           Expanded(
             child: Obx(() {
 
@@ -43,28 +45,24 @@ class EmployeePage extends StatelessWidget {
               }
 
               return ListView.builder(
-                itemCount:
-                    controller.filteredList.length,
+                itemCount: controller.filteredList.length,
 
                 itemBuilder: (context, index) {
 
-                  final employee =
-                      controller.filteredList[index];
+                  final employee = controller.filteredList[index];
 
                   return ListTile(
+                    leading: const Icon(Icons.person),
                     title: Text(employee.name),
-                    subtitle:
-                        Text(employee.designation),
+                    subtitle: Text(employee.designation),
 
                     onTap: () {
 
-                      controller.selectEmployee(
-                        employee,
-                      );
+                      // ✅ Select employee (GetX state)
+                      controller.selectEmployee(employee);
 
-                      Get.to(
-                        () => EmployeeDetailsPage(),
-                      );
+                      // 🚀 Navigation
+                      Get.to(() => EmployeeDetailsPage());
                     },
                   );
                 },
