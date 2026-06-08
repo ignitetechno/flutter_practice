@@ -27,6 +27,23 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
+msix_config:
+  display_name: My HRMS App # ইনস্টল স্ক্রিনে যে সুন্দর নামটি দেখাবে
+  publisher_display_name: IGNITE TECHNOLOGY # আপনার বা আপনার কোম্পানির নাম
+  title_color: "#000000" # টেক্সটের কালার (কালো বা সাদা)
+  
+  # 🔥 মূল আকর্ষণ: ইনস্টল স্ক্রিনের ব্যাকগ্রাউন্ড কালার (আপনার ব্র্যান্ড কালার দিন)
+  background_color: "#0078D4" # এখানে আপনার পছন্দমতো হেক্স কোড (যেমন নীল বা গ্রে) দিন
+  
+  # 🔥 লোগো পাথ (লোগো সুন্দর হলে ইনস্টল স্ক্রিন এমনিতেই জোস লাগবে)
+  logo_path: assets/images/app_logo.jpeg 
+  
+  # উইন্ডোজ স্টার্ট মেনু এবং টাস্কবারের জন্য লোগো সেটিংস
+  square150x150Logo_path: assets/images/app_logo.jpeg
+  square44x44Logo_path: assets/images/app_logo.jpeg
+  
+  # অ্যাপের ক্যাটাগরি (উইন্ডোজের জন্য)
+  project_type: company
 dependencies:
   flutter:
     sdk: flutter
@@ -35,6 +52,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   get: ^4.7.3
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  msix: ^3.16.13
+  fluent_ui: ^4.15.1
+  fl_chart: ^1.2.0
 
 dev_dependencies:
   flutter_test:

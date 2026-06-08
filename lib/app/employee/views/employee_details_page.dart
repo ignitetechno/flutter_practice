@@ -18,7 +18,7 @@ class EmployeeDetailsPage extends StatelessWidget {
 
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Employee Details"),
+          title: const Text("Employee Detailssss"),
 
           // ✅ AppBar back manually enable
           leading: IconButton(

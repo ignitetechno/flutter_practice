@@ -8,7 +8,7 @@ class EmployeePage extends StatelessWidget {
   EmployeePage({super.key});
 
   // ✅ SAFE WAY (reuse existing controller)
-  final EmployeeController controller = Get.find<EmployeeController>();
+  final EmployeeController controller = Get.put<EmployeeController>(EmployeeController());
 
   @override
   Widget build(BuildContext context) {

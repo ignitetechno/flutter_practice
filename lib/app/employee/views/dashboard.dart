@@ -9,8 +9,7 @@ import 'profile.dart';
 class DashboardPage extends StatelessWidget {
   DashboardPage({super.key});
 
-  final BottomNavController controller =
-      Get.put(BottomNavController());
+  final BottomNavController controller = Get.find<BottomNavController>();
 
   final List<Widget> pages = [
     HomePage(),
@@ -26,6 +25,10 @@ class DashboardPage extends StatelessWidget {
       () => Scaffold(
         appBar: AppBar(
           title: const Text("GetX Dashboard"),
+          backgroundColor: const Color.fromARGB(255, 106, 118, 214),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+          ),
         ),
 
         // 🔥 Body now has 6 cards in Home tab
@@ -47,10 +50,7 @@ class DashboardPage extends StatelessWidget {
               icon: Icon(Icons.people),
               label: "Employee",
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Profile",
-            ),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               label: "Settings",

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice/app/employee/bindings/initial_binding.dart';
 import 'package:flutter_practice/app/employee/routes/app_pages.dart';
 import 'package:flutter_practice/app/employee/routes/app_routes.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Hive.initFlutter();
+
+  await Hive.openBox('hrms');
+
   runApp(const MyApp());
 }
 
@@ -13,14 +19,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-return GetMaterialApp(
-  debugShowCheckedModeBanner: false,
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
 
-  initialBinding: InitialBinding(),
+      initialRoute: AppRoutes.splash,
 
-  initialRoute: AppRoutes.splash,
-
-  getPages: AppPages.pages,
-);
+      getPages: AppPages.pages,
+    );
   }
 }

@@ -18,7 +18,7 @@ class HrmsController extends GetxController {
 
     employeeCount.value = 125;
     presentCount.value = 100;
-    absentCount.value = 25;
+    absentCount.value = 30;
     departmentCount.value = 6;
     salary.value = "5.5M";
     projectCount.value = 16;
