@@ -7,4 +7,5 @@ class AppRoutes {
   static const pay = '/pay';
   static const storage = '/storage';
   static const test = '/test';
+  static const hp = '/hp';
 }

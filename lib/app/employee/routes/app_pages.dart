@@ -1,6 +1,8 @@
+import 'package:flutter_practice/app/employee/bindings/hp_binding.dart';
 import 'package:flutter_practice/app/employee/bindings/pay_bindings.dart';
 import 'package:flutter_practice/app/employee/bindings/storage_binding.dart';
 import 'package:flutter_practice/app/employee/bindings/test_binding.dart';
+import 'package:flutter_practice/app/employee/views/hp_page.dart';
 import 'package:flutter_practice/app/employee/views/pay_page.dart';
 import 'package:flutter_practice/app/employee/views/profile.dart';
 import 'package:flutter_practice/app/employee/views/storage_page.dart';
@@ -42,9 +44,16 @@ class AppPages {
       binding: EmployeeBinding(),
     ),
 
-    GetPage(name: AppRoutes.employeeDetails, page: () => ProfilePage()),
+    GetPage(
+      name: AppRoutes.employeeDetails,
+       page: () => ProfilePage()
+       ),
 
-    GetPage(name: AppRoutes.pay, page: () => PayPage(), binding: PayBinding()),
+    GetPage(
+      name: AppRoutes.pay,
+       page: () => PayPage(),
+        binding: PayBinding()
+        ),
     GetPage(
       name: '/storage',
       page: () => StoragePage(),
@@ -55,5 +64,6 @@ class AppPages {
       page: () => TestPage(),
       binding: TestBinding(),
     ),
+    GetPage(name: AppRoutes.hp, page: () => HpPage(), binding: HpBinding()),
   ];
 }

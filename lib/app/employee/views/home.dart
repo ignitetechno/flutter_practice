@@ -61,31 +61,34 @@ class HomePage extends StatelessWidget {
                 mainAxisSpacing: 10,
               ),
               children: [
-                // ✅ CLICKABLE BUTTON CARDS (এখানে Obx দরকার নেই)
+             
                 _cardButton("Add Employee", Icons.person_add, () {
-                  // আপনার main.dart-এ Named Route সেট করা থাকলে এটি রাখুন:
+              
                   Get.to(
                     () => const ProfilePage(),
-                  ); // অথবা Named Route না থাকলে নিচের লাইনটি ব্যবহার করুন:
+                  ); 
                   // Get.to(() => const ProfilePage());
                 }),
 
                 _cardButton("Employees", Icons.people, () {
                   Get.toNamed('/employee');
-                  // অথবা Named Route না থাকলে: Get.to(() => const EmpPage());
+                 
                 }),
                 _cardButton("Pay", Icons.money, () {
                   Get.toNamed(AppRoutes.pay);
-                  // অথবা Named Route না থাকলে: Get.to(() => const PayPage());
+                
                 }),
                 _cardButton("Storage", Icons.storage, () {
                   Get.toNamed(AppRoutes.storage);
                 }),
-                          _cardButton("Test", Icons.mic_external_on_rounded, () {
+                _cardButton("Test", Icons.mic_external_on_rounded, () {
                   Get.toNamed(AppRoutes.test);
                 }),
+                _cardButton("HP", Icons.h_plus_mobiledata, () {
+                  Get.toNamed(AppRoutes.hp);
+                }),
 
-                // ✅ DYNAMIC CARDS (শুধুমাত্র ভ্যালু পরিবর্তনের জায়গায় Obx ব্যবহার করা হয়েছে)
+             
                 Obx(
                   () => _card(
                     "Present",
